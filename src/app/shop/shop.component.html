@@ -1,0 +1,27 @@
+<h2>Productos </h2>
+<div *ngFor="let p of products">
+<ul class="listado">
+    <li>
+        {{p.id}} </li>
+
+        <li>{{p.name | uppercase}}</li>
+
+        <li>{{p.price}} $</li>
+        <button (click)="addCart(p)">+</button>
+<!--         <button (click)="delateProduct(quantity)">-</button>
+ -->
+</ul>
+</div>
+
+<div *ngIf="cart">
+    <h3> Cart</h3>
+    <ul *ngFor="let p of cart">
+        <!-- <li>{{cart.name}}</li> -->
+        <li >
+            {{p.name}}
+            {{p.price}} € </li>
+            <li>            {{p.quantity}} /
+            TOTAL:
+              {{p.price*p.quantity | number:'1.2-2'}}</li>
+    </ul>
+</div>
